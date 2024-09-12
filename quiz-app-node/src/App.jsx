@@ -2,28 +2,10 @@ import React, { useState, useEffect } from 'react';
 import QuizComponent from './Components/quiz';// Adjust the path if needed
 import './App.css';
 
-// Sample questions for the quiz
-const questions = [
-  {
-    text: 'What is 2 + 2?',
-    options: [
-      { text: '3', isCorrect: false },
-      { text: '4', isCorrect: true },
-      { text: '5', isCorrect: false },
-    ],
-  },
-  {
-    text: 'What is the capital of France?',
-    options: [
-      { text: 'Berlin', isCorrect: false },
-      { text: 'Madrid', isCorrect: false },
-      { text: 'Paris', isCorrect: true },
-    ],
-  },
-  // Add more questions as needed
-];
+
 
 function App() {
+  // end point to connect my front end with my backend
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null); // State for error handling
 
@@ -48,7 +30,7 @@ function App() {
       {error ? <p className="error">{error}</p> : <p>{message}</p>}
       <h2>Quiz Time</h2>
       <div className="quiz-container">
-        <QuizComponent questions={questions} />
+        <QuizComponent/>
       </div>
     </div>
   );
