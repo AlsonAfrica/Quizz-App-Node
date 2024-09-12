@@ -1,22 +1,27 @@
-// src/hooks/useInterval.js
-import { useRef, useEffect } from 'react';
+// src/components/Timer.js
+import React, { useState, useEffect } from 'react';
 
-const useInterval = (callback, delay) => {
-  const savedCallback = useRef();
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
+const Timer = ({ duration, onTimeUp }) => {
+  const [timeLeft, setTimeLeft] = useState(duration);
 
   useEffect(() => {
-    function tick() {
-      savedCallback.current();
+    if (timeLeft === 0) {
+      onTimeUp();
+      return;
     }
-    if (delay !== null) {
-      const id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
+    
+    const intervalId = setInterval(() => {
+      setTimeLeft((prevTime) => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [timeLeft, onTimeUp]);
+
+  return (
+    <div>
+      <p>Time Left: {timeLeft}s</p>
+    </div>
+  );
 };
 
-export default useInterval;
+export default Timer;

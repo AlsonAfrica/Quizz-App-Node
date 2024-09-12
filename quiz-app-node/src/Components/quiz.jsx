@@ -1,7 +1,7 @@
+// src/components/QuizComponent.js
 import React, { useState, useEffect } from 'react';
-import Timer from '../Components/timer';
-import Question from '../Components/questions';
-
+import Question from './questions';
+import Timer from './timer';
 
 const QuizComponent = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -22,7 +22,7 @@ const QuizComponent = ({ questions }) => {
       alert(`Quiz over! Your score: ${score}`);
       // You can add logic to redirect to another page or show results here
     }
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, questions.length, score]);
 
   return (
     <div>
@@ -41,6 +41,3 @@ const QuizComponent = ({ questions }) => {
 };
 
 export default QuizComponent;
-
-
-

@@ -1,23 +1,26 @@
+// src/components/Question.js
 import React from 'react';
 
 const Question = ({ question, onAnswer, timeOver }) => {
-  const handleAnswerClick = (isCorrect) => {
+  const handleAnswer = (isCorrect) => {
     onAnswer(isCorrect);
   };
 
   return (
     <div>
       <h3>{question.text}</h3>
-      {question.options.map((option, index) => (
-        <button
-          key={index}
-          onClick={() => handleAnswerClick(option.isCorrect)}
-          disabled={timeOver}
-        >
-          {option.text}
-        </button>
-      ))}
-      {timeOver && <p>Time is up! Moving to the next question...</p>}
+      <ul>
+        {question.options.map((option, index) => (
+          <li key={index}>
+            <button
+              onClick={() => handleAnswer(option.isCorrect)}
+              disabled={timeOver}
+            >
+              {option.text}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
