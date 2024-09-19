@@ -23,10 +23,21 @@ This is a simple command-line quiz application built using Node.js. It asks user
 
 - [Node.js](https://nodejs.org/) (version 14 or higher recommended)
 
+# Technologies
+- Nodejs (Run time Environment)
+- Realine Sync (built in)
+
+## Quiz interphase
+![image](https://github.com/user-attachments/assets/987defe3-3222-48c7-943b-905a5a1a112b)
+
+
 ## Installation
 
 1. Clone the repository or download the code:
 
    ```bash
-   git clone https://github.com/your-username/quiz-app.git
+   git clone https://github.com/AlsonAfrica/Quizz-App-Node.git
    cd quiz-app
+   To start the quiz:
+   node index
+      
